@@ -1,5 +1,6 @@
 # Hi there 👋
-## Actualmente estoy cursando la carrera de Desarrollo de Software en Unicatólica. Me interesa la fotografía, los idiomas y la literatura.
+### Actualmente estoy cursando la carrera de Desarrollo de Software en Unicatólica. Me interesa la fotografía, los idiomas, la literatura y la programación 😎
+### Currently i'm learning Software Development at Unicatólica. I enjoy taking pictures, learning languages, reading books and of course coding 😁
 
 <!--
 **Sececo/Sececo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
