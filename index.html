@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sebastián Ceballos | Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #020617;
+        color: #e2e8f0;
+        line-height: 1.6;
+        padding: 40px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        background: #0f172a;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #020617, #111827);
+        padding: 50px;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        background: #1e293b;
+        /* border: 2px dashed #475569; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #94a3b8;
+        font-size: 14px;
+        padding: 5px;
+        /* flex-shrink: 0; */
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .hero-content h2 {
+        font-size: 1.2rem;
+        color: #f8fafc;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .contact span,
+      .contact a {
+        background: rgba(255, 255, 255, 0.06);
+        padding: 10px 14px;
+        border-radius: 12px;
+        color: #cbd5e1;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .main {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+      }
+
+      .sidebar {
+        background: #0b1220;
+        padding: 40px 30px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .content {
+        padding: 40px;
+      }
+
+      .section {
+        margin-bottom: 45px;
+      }
+
+      .section h3 {
+        font-size: 1.1rem;
+        color: #f8fafc;
+        margin-bottom: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 10px;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .skill {
+        background: rgba(255, 255, 255, 0.06);
+        color: #e2e8f0;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      .project {
+        margin-bottom: 35px;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 18px;
+      }
+
+      .project h4 {
+        font-size: 1.3rem;
+        color: white;
+        margin-bottom: 12px;
+      }
+
+      .project p {
+        color: #cbd5e1;
+        margin-bottom: 15px;
+      }
+
+      .project ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .project li {
+        margin-bottom: 8px;
+        color: #cbd5e1;
+      }
+
+      .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .stack span {
+        background: rgba(255, 255, 255, 0.06);
+        padding: 6px 10px;
+        border-radius: 10px;
+        font-size: 12px;
+        color: #94a3b8;
+      }
+
+      .about {
+        color: #cbd5e1;
+        font-size: 15px;
+      }
+
+      .strengths li {
+        margin-bottom: 10px;
+        color: #cbd5e1;
+      }
+
+      .download-section {
+        padding: 40px;
+        text-align: center;
+        background: #0b1220;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      @media (max-width: 900px) {
+        .main {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .contact {
+          justify-content: center;
+        }
+
+        body {
+          padding: 15px;
+        }
+      }
+
+      @media print {
+        .download-section {
+          display: none;
+        }
+
+        body {
+          background: white;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="cv">
+      <section class="hero">
+        <!-- <div class="profile-pic">Agrega aquí tu foto profesional</div> -->
+        <img src="ft.jpg" alt="Foto de perfil" class="profile-pic" />
+
+        <div class="hero-content">
+          <h1>Sebastián Ceballos</h1>
+          <h2>Backend Developer | TypeScript • Node.js • REST APIs</h2>
+
+          <p class="about">
+            Desarrollador backend enfocado en construir sistemas mantenibles,
+            seguros y reproducibles utilizando TypeScript y Node.js. Experiencia
+            en APIs REST, PostgreSQL, JWT, Docker, Linux, procesamiento de
+            datos, interoperabilidad entre lenguajes y automatización.
+          </p>
+
+          <div class="contact">
+            <span>📍 Colombia</span>
+            <a href="https://github.com/Sececo" target="_blank"
+              >GitHub / Sececo</a
+            >
+            <span>📧 01sebas.co@gmail.com</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="main">
+        <aside class="sidebar">
+          <section class="section">
+            <h3>Lenguajes</h3>
+            <div class="skills-list">
+              <div class="skill">TypeScript</div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">SQL</div>
+              <div class="skill">Rust</div>
+              <div class="skill">C</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>Backend</h3>
+            <div class="skills-list">
+              <div class="skill">Node.js</div>
+              <div class="skill">Express</div>
+              <div class="skill">REST APIs</div>
+              <div class="skill">Swagger</div>
+              <div class="skill">JWT</div>
+              <div class="skill">bcrypt</div>
+              <div class="skill">DTO Validation</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>Bases de Datos</h3>
+            <div class="skills-list">
+              <div class="skill">PostgreSQL</div>
+              <div class="skill">Sequelize</div>
+              <div class="skill">Neon</div>
+              <div class="skill">GeoJSON</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>Linux & Sistemas</h3>
+            <div class="skills-list">
+              <div class="skill">Linux CLI</div>
+              <div class="skill">Docker</div>
+              <div class="skill">IPC</div>
+              <div class="skill">POSIX</div>
+              <div class="skill">Shared Memory</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>Automatización & IA</h3>
+            <div class="skills-list">
+              <div class="skill">Web Scraping</div>
+              <div class="skill">GIS Processing</div>
+              <div class="skill">CSV Normalization</div>
+              <div class="skill">Ollama</div>
+              <div class="skill">IA Local</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>Idiomas</h3>
+            <div class="skills-list">
+              <div class="skill">Español — Nativo</div>
+              <div class="skill">Inglés — B1</div>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>Fortalezas</h3>
+            <div class="skills-list">
+              <div class="skill">Aprendizaje continuo</div>
+              <div class="skill">Claridad y mantenibilidad</div>
+              <div class="skill">Resolución metódica de errores</div>
+              <div class="skill">Documentación precisa</div>
+              <div class="skill">Mentalidad analítica</div>
+              <div class="skill">Adaptabilidad tecnológica</div>
+              <div class="skill">Trabajo colaborativo</div>
+              <div class="skill">Control de versiones disciplinado</div>
+            </div>
+          </section>
+        </aside>
+
+        <main class="content">
+          <section class="section">
+            <h3>Acerca de mí</h3>
+
+            <p class="about">
+              Desarrollador backend enfocado en arquitectura de software,
+              claridad del código y diseño modular. Experiencia construyendo
+              APIs REST con TypeScript, Node.js y PostgreSQL, aplicando
+              autenticación segura mediante JWT y buenas prácticas de
+              mantenibilidad. Familiarizado con Linux, Docker, debugging en
+              producción y documentación técnica. También he trabajado en
+              automatización de procesos mediante web scraping, procesamiento y
+              normalización de datos GIS, interoperabilidad entre lenguajes y
+              exploración de programación de bajo nivel utilizando Rust y C. Me
+              caracterizo por un enfoque analítico y metódico para la resolución
+              de errores, aprendizaje continuo y adaptación rápida a nuevas
+              tecnologías y flujos de trabajo. Actualmente profundizando en
+              conceptos de arquitectura y sistemas distribuidos mediante la
+              lectura de "Designing Data-Intensive Applications" de Martin
+              Kleppmann.
+            </p>
+          </section>
+
+          <section class="section">
+            <h3>Experiencia Técnica y Proyectos</h3>
+
+            <div class="project">
+              <h4>BusCali — Plataforma Integral de Transporte Público</h4>
+
+              <p>
+                Proyecto backend desarrollado como propuesta tecnológica para
+                ofrecer alternativas y mejorar la experiencia de movilidad y
+                transporte público para ciudadanos de Cali. Actualmente en
+                desarrollo.
+              </p>
+
+              <ul>
+                <li>
+                  Desarrollo de APIs REST para App Móvil y Panel Administrativo.
+                </li>
+                <li>Autenticación segura basada en JWT y cookies seguras.</li>
+                <li>Persistencia relacional con PostgreSQL y Sequelize.</li>
+                <li>Manejo de coordenadas geográficas utilizando GeoJSON.</li>
+                <li>Documentación de endpoints con Swagger/OpenAPI.</li>
+                <li>
+                  Diseño modular orientado a mantenibilidad y escalabilidad.
+                </li>
+              </ul>
+
+              <div class="stack">
+                <span>TypeScript</span>
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>PostgreSQL</span>
+                <span>JWT</span>
+                <span>Docker</span>
+                <span>GeoJSON</span>
+              </div>
+
+              <div
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                "
+              >
+                <a
+                  href="https://github.com/Sececo/buscali-backend"
+                  target="_blank"
+                  style="
+                    text-decoration: none;
+                    background: #f8fafc;
+                    color: #020617;
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                  >Repositorio</a
+                >
+              </div>
+            </div>
+
+            <div class="project">
+              <h4>TPS — Procesamiento y Normalización de Datos Geográficos</h4>
+
+              <p>
+                Proyecto enfocado en extracción, limpieza y normalización de
+                datos públicos de parcelas pertenecientes a un estado de Nueva
+                Inglaterra para agilizar procesos de cold calling en una empresa
+                estadounidense de call center.
+              </p>
+
+              <ul>
+                <li>Web scraping automatizado.</li>
+                <li>Procesamiento masivo de datasets.</li>
+                <li>Normalización y limpieza de datos GIS.</li>
+                <li>Conversión de formatos geográficos hacia CSV.</li>
+                <li>
+                  Uso de IA local para limpieza y procesamiento automatizado de
+                  datos.
+                </li>
+                <li>
+                  Desarrollo de algoritmos personalizados según necesidades del
+                  cliente.
+                </li>
+              </ul>
+
+              <div class="stack">
+                <span>Node.js</span>
+                <span>TypeScript</span>
+                <span>GIS</span>
+                <span>CSV</span>
+                <span>Ollama</span>
+              </div>
+
+              <div
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                "
+              >
+                <a
+                  href="https://github.com/Sececo/tps"
+                  target="_blank"
+                  style="
+                    text-decoration: none;
+                    background: #f8fafc;
+                    color: #020617;
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                  >Repositorio</a
+                >
+              </div>
+            </div>
+
+            <div class="project">
+              <h4>Saturday — Simulador de Distribución de Carga CPU</h4>
+
+              <p>
+                SPA desarrollada con el objetivo de agilizar la comprensión de
+                algoritmos complejos de distribución de carga CPU y
+                planificación de procesos para estudiantes universitarios.
+              </p>
+
+              <ul>
+                <li>
+                  Implementación de algoritmos apropiativos y no apropiativos.
+                </li>
+                <li>Visualización interactiva orientada al aprendizaje.</li>
+                <li>Visualización de métricas y tiempos de espera.</li>
+                <li>Simulación de procesos y comportamiento temporal.</li>
+                <li>
+                  Trabajo con estructuras de datos y lógica de scheduling.
+                </li>
+              </ul>
+
+              <div class="stack">
+                <span>TypeScript</span>
+                <span>JavaScript</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>SPA</span>
+              </div>
+
+              <div
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                "
+              >
+                <a
+                  href="https://github.com/Sececo/saturday"
+                  target="_blank"
+                  style="
+                    text-decoration: none;
+                    background: #f8fafc;
+                    color: #020617;
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                  >Repositorio</a
+                >
+                <a
+                  href="https://saturday-flax.vercel.app/"
+                  target="_blank"
+                  style="
+                    text-decoration: none;
+                    background: transparent;
+                    border: 1px solid rgba(255, 255, 255, 0.15);
+                    color: #e2e8f0;
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                  >Ver desplegado</a
+                >
+              </div>
+            </div>
+
+            <div class="project">
+              <h4>
+                Proyecto de Memoria Compartida — Interoperabilidad C & Rust
+              </h4>
+
+              <p>
+                Proyecto formativo enfocado en comprender programación de bajo
+                nivel, interoperabilidad entre lenguajes y mecanismos internos
+                de Linux mediante IPC y memoria compartida POSIX entre programas
+                escritos en C y Rust.
+              </p>
+
+              <ul>
+                <li>Uso de memoria compartida POSIX.</li>
+                <li>Interoperabilidad entre C y Rust.</li>
+                <li>Exploración de programación de bajo nivel.</li>
+                <li>Gestión de memoria y procesos en Linux.</li>
+                <li>Trabajo con APIs POSIX y syscalls.</li>
+              </ul>
+
+              <div class="stack">
+                <span>Rust</span>
+                <span>C</span>
+                <span>Linux</span>
+                <span>POSIX</span>
+                <span>IPC</span>
+              </div>
+
+              <div
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                "
+              >
+                <a
+                  href="https://github.com/Sececo/shm_posix"
+                  target="_blank"
+                  style="
+                    text-decoration: none;
+                    background: #f8fafc;
+                    color: #020617;
+                    padding: 10px 16px;
+                    border-radius: 10px;
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                  >Repositorio</a
+                >
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
